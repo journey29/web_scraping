@@ -3,6 +3,7 @@ export type PriceHistoryItem = {
 };
 
 export interface Product {
+    _id?: string,
     url: string,
     title: string,
     currency: string,
