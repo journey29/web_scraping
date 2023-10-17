@@ -13,7 +13,7 @@ const heroImages = [
 
 export const HeroCarousel = () => {
     return (
-        <div className="relative hidden md:flex sm:px-10 py-5 sm:pt-20 pb-5 md:max-w-[500px] md:max-h-[600px] mx:max-w-[560px] mx:max-h-[700px] w-full bg-[#F2F4F7] rounded-[30px] sm:mx-auto;">
+        <div className="relative hidden md:flex sm:px-10 py-5 sm:pt-8 pb-5 md:max-w-[400px] md:max-h-[450px] mx:max-w-[400px] mx:max-h-[580px] w-full bg-[#F2F4F7] rounded-[30px] sm:mx-auto">
             <Carousel
                 showThumbs={false}
                 autoPlay
@@ -24,7 +24,7 @@ export const HeroCarousel = () => {
                 stopOnHover
                 emulateTouch>
                 {heroImages.map(image => {
-                    return <Image className="object-contain" key={image.alt} src={image.imgSrc} alt={image.alt} width={480} height={480} />
+                    return <Image className="object-contain max-w-[350px]" key={image.alt} src={image.imgSrc} alt={image.alt} width={480} height={480} />
                 })}
             </Carousel>
         </div>
