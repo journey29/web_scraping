@@ -32,16 +32,14 @@ export async function scrapeAmazonProduct(url: string) {
       $("span.aok-align-center span.a-offscreen"),
       $("#price_inside_buybox"),
       $(".priceToPay span.a-price-whole"),
-      $(".a.size.base.a-color-price"),
       $(".a-button-selected .a-color-base")
     );
 
     const originalPrice = extractPrice(
-      $(".puis-light-weight-text span.a-offscreen"),
+      $("span.basisPrice span.a-offscreen"),
       $("#priceblock_ourprice"),
       $("#listPrice"),
-      $("#priceblock_dealprice"),
-      $(".a-size-base.a-color-price")
+      $("#priceblock_dealprice")
     );
 
     const images =

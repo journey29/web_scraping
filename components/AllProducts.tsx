@@ -2,7 +2,6 @@ import { getAllProducts } from '@/lib/actions';
 import { Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from './UI/Button';
 
 const AllProducts = async () => {
     const allProducts = await getAllProducts()
