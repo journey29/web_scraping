@@ -5,9 +5,7 @@ import nodemailer from "nodemailer";
 
 const Notification = {
   WELCOME: "WELCOME",
-  CHANGE_OF_STOCK: "CHANGE_OF_STOCK",
   LOWEST_PRICE: "LOWEST_PRICE",
-  THRESHOLD_MET: "THRESHOLD_MET",
 };
 
 export async function generateEmailBody(
@@ -43,32 +41,12 @@ export async function generateEmailBody(
       `;
       break;
 
-    case Notification.CHANGE_OF_STOCK:
-      subject = `${shortenedTitle} is now back in stock!`;
-      body = `
-        <div>
-          <h4>Hey, ${product.title} is now restocked! Grab yours before they run out again!</h4>
-          <p>See the product <a href="${product.url}" target="_blank" rel="noopener noreferrer">here</a>.</p>
-        </div>
-      `;
-      break;
-
     case Notification.LOWEST_PRICE:
       subject = `Lowest Price Alert for ${shortenedTitle}`;
       body = `
         <div>
           <h4>Hey, ${product.title} has reached its lowest price ever!!</h4>
           <p>Grab the product <a href="${product.url}" target="_blank" rel="noopener noreferrer">here</a> now.</p>
-        </div>
-      `;
-      break;
-
-    case Notification.THRESHOLD_MET:
-      subject = `Discount Alert for ${shortenedTitle}`;
-      body = `
-        <div>
-          <h4>Hey, ${product.title} is now available at a discount more than ${THRESHOLD_PERCENTAGE}%!</h4>
-          <p>Grab it right away from <a href="${product.url}" target="_blank" rel="noopener noreferrer">here</a>.</p>
         </div>
       `;
       break;

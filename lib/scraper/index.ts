@@ -28,14 +28,21 @@ export async function scrapeAmazonProduct(url: string) {
 
     const title = $("#productTitle").text().trim();
     const currPrice = extractPrice(
-      $("#price_inside_buybox.a-size-medium.a-color-price"),
-      $("span.a-price.a-text-price span.a-offscreen")
+      $(".a-price span.a-offscreen"),
+      $("span.aok-align-center span.a-offscreen"),
+      $("#price_inside_buybox"),
+      $(".priceToPay span.a-price-whole"),
+      $(".a.size.base.a-color-price"),
+      $(".a-button-selected .a-color-base")
     );
 
     const originalPrice = extractPrice(
-      $("#priceblock_dealprice"),
+      $(".puis-light-weight-text span.a-offscreen"),
       $("#priceblock_ourprice"),
-      $("#listPrice")
+      $(".a-price.a-text-price span.a-offscreen"),
+      $("#listPrice"),
+      $("#priceblock_dealprice"),
+      $(".a-size-base.a-color-price")
     );
 
     const images =
@@ -44,18 +51,16 @@ export async function scrapeAmazonProduct(url: string) {
       "{}";
 
     const imagesUrl = Object.keys(JSON.parse(images));
-
     const currency = extractCurrency($(".a-price-symbol"));
-
     const description = $(".a-spacing-mini .a-list-item").text().trim();
 
     const data = {
       url,
       title,
-      currency,
       imageUrl: imagesUrl[0],
       originalPrice,
       currPrice,
+      currency,
       description,
       priceHistory: [],
       lowestPrice: Number(currPrice) || Number(originalPrice) || 0,

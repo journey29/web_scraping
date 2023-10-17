@@ -1,8 +1,8 @@
-import Products from "@/components/Products"
+import AllProducts from "@/components/AllProducts"
 
 const ProductsPage = () => {
     return (
-        <Products />
+        <AllProducts />
     )
 }
 

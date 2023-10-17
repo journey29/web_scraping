@@ -8,7 +8,7 @@ type Props = {
 const ZoomImage = ({ imageUrl }: Props) => {
     return (
         <InnerImageZoom
-            className='object-cover rounded-3xl w-[250px] max-h-full sm:w-[400px] '
+            className='object-cover rounded-3xl w-[250px] max-h-[400px] sm:w-[400px] '
             src={imageUrl}
             zoomSrc={imageUrl}
             moveType="drag"

@@ -1,9 +1,7 @@
 import { Product } from "@/types";
 const Notification = {
   WELCOME: "WELCOME",
-  CHANGE_OF_STOCK: "CHANGE_OF_STOCK",
   LOWEST_PRICE: "LOWEST_PRICE",
-  THRESHOLD_MET: "THRESHOLD_MET",
 };
 
 export function extractPrice(...elements: any) {
@@ -11,7 +9,15 @@ export function extractPrice(...elements: any) {
     const priceText = element.text().trim();
 
     if (priceText) {
-      return priceText;
+      const cleanPrice = priceText.replace(/[^\d.]/g, "");
+
+      let firstPrice;
+
+      if (cleanPrice) {
+        firstPrice = cleanPrice.match(/\d+\.\d{2}/)?.[0];
+      }
+
+      return firstPrice || cleanPrice;
     }
   }
 
@@ -20,7 +26,7 @@ export function extractPrice(...elements: any) {
 
 export function extractCurrency(element: any) {
   const currency = element.text().trim().slice(0, 1);
-  return currency ? currency : "";
+  return currency ? currency : "$";
 }
 
 export function getHighestPrice(priceList: { price: number }[]) {

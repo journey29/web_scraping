@@ -5,7 +5,6 @@ import { Product } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import InnerImageZoom from 'react-inner-image-zoom';
 
 type Props = {
     params: {
@@ -24,7 +23,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                     <div>
                         {product.currPrice
                             ? <p className='font-bold text-lg sm:text-xl mb-3 text-blue-600'>{product.currPrice}<span>{product.currency}</span></p>
-                            : <p>Price currently unavailable</p>
+                            : <p className='mb-3'>Price currently unavailable</p>
                         }
                         {product.originalPrice &&
                             <p className='font-semibold text-gray-500 line-through text-md'>{product.originalPrice}<span>{product.currency}</span></p>
