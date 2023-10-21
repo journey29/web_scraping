@@ -60,8 +60,8 @@ export async function scrapeAmazonProduct(url: string) {
       currency,
       description,
       priceHistory: [],
-      lowestPrice: Number(currPrice) || Number(originalPrice) || 0,
-      highestPrice: Number(originalPrice) || Number(currPrice) || 0,
+      lowestPrice: parseInt(currPrice) || parseInt(originalPrice) || 0,
+      highestPrice: parseInt(originalPrice) || parseInt(currPrice) || 0,
       users: [],
     };
 
@@ -112,8 +112,8 @@ export async function scrapePromProduct(url: string) {
       currPrice,
       description,
       priceHistory: [],
-      lowestPrice: Number(currPrice) || Number(originalPrice),
-      highestPrice: Number(originalPrice) || Number(currPrice),
+      lowestPrice: Number(currPrice) || Number(originalPrice) || 0,
+      highestPrice: Number(originalPrice) || Number(currPrice) || 0,
       users: [],
     };
 

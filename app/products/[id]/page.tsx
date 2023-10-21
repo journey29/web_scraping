@@ -15,7 +15,7 @@ type Props = {
 const ProductDetails = async ({ params: { id } }: Props) => {
     const product: Product = await getProductById(id)
     return (
-        <div className='flex flex-col items-center text-center sm:items-start sm:text-start sm:flex-row justify-center gap-9 mt-32'>
+        <div className='mt-20 text-center sm:text-start sm:flex-row gap-9'>
             <ZoomImage imageUrl={product.imageUrl} />
             <div className='flex flex-col max-w-sm sm:max-w-lg w-full'>
                 <div className='mb-5'>
