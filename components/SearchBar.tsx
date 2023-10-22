@@ -33,7 +33,7 @@ const SearchBar = () => {
 
         if (selectedShop === '') {
             setError('Please select a store')
-            return
+            return;
         }
 
         if (isValidProductURL()) {
@@ -41,7 +41,7 @@ const SearchBar = () => {
                 setIsLoading(true);
                 const product = await scrapeProduct(searchValue, selectedShop);
             } catch (err: any) {
-                console.log(err)
+                setError('Failed to load your product. Try again')
             } finally {
                 setIsLoading(false)
             }
