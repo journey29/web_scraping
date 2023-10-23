@@ -101,8 +101,6 @@ export async function scrapePromProduct(url: string) {
     const images = $("img.MPQaS").attr("src");
     const description = $(".z1xg5 p").text().trim();
 
-    console.log(description);
-
     const data = {
       url,
       title,

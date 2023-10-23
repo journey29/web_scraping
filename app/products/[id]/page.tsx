@@ -21,11 +21,11 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                     <h4 className='font-bold text-xl sm:text-2xl mb-4'>{product.title}</h4>
                     <div>
                         {product.currPrice
-                            ? <p className='font-bold text-lg sm:text-xl mb-3 text-blue-600'>{product.currPrice}<span>{product.currency}</span></p>
+                            ? <p className='font-bold text-lg sm:text-xl mb-3 text-blue-600'>{product.currPrice}<span>{!!product.currency && product.currency}</span></p>
                             : <p className='mb-3'>Price currently unavailable</p>
                         }
                         {product.originalPrice &&
-                            <p className='font-semibold text-gray-500 line-through text-md'>{product.originalPrice}<span>{product.currency}</span></p>
+                            <p className='font-semibold text-gray-500 line-through text-md'>{product.originalPrice}<span>{!!product.currency && product.currency}</span></p>
                         }
                     </div>
                 </div>
